@@ -1,17 +1,18 @@
 'use strict';
 
-var fs = require('fs'),
-    Q  = require('q');
+var path = require('path'),
+    fs   = require('fs'),
+    Q    = require('q');
 
 module.exports = function(file, finished) {
 
-    var paths = process.env['PATH'].split(';');
+    var paths = process.env.PATH.split(path.delimiter);
 
     var promises = [];
     for (var i = 0; i < paths.length; i++) {
         var fn = function() {
             var deferred = Q.defer();
-            fs.exists(paths[i] + '//' + file, function(exists) {
+            fs.exists(paths[i] + path.sep + file, function(exists) {
                 deferred.resolve(exists);
             });
             return deferred.promise;
