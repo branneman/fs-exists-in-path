@@ -13,7 +13,7 @@ npm install node-fs-exists-in-path
 ```js
 var existsInPath = require('node-fs-exists-in-path');
 
-existsInPath('grunt', function(exists) {
+existsInPath('grunt', function(err, exists) {
     if (exists) {
         console.log('grunt-cli seems to be installed!');
     } else {

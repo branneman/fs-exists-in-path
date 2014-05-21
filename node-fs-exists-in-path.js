@@ -1,28 +1,23 @@
 'use strict';
 
-var path = require('path'),
-    fs   = require('fs'),
-    Q    = require('q');
+var path  = require('path');
+var fs    = require('fs');
+var async = require('async');
 
-module.exports = function(file, finished) {
+module.exports = function(file, callback) {
 
-    var paths = process.env.PATH.split(path.delimiter);
+    var dirs = process.env.PATH.split(path.delimiter);
 
-    var promises = [];
-    for (var i = 0; i < paths.length; i++) {
-        var fn = function() {
-            var deferred = Q.defer();
-            fs.exists(paths[i] + path.sep + file, function(exists) {
-                deferred.resolve(exists);
+    var tasks = [];
+    dirs.forEach(function(dir) {
+        tasks.push(function(cb) {
+            fs.exists(path.join(dir, file), function(exists) {
+                cb(null, exists);
             });
-            return deferred.promise;
-        };
-        promises.push(fn());
-    }
+        });
+    });
 
-    Q.allSettled(promises).then(function(results) {
-        finished(-1 !== results.map(function(v) {
-            return v.value;
-        }).indexOf(true));
+    async.parallel(tasks, function(err, results) {
+        callback(null, !!~results.indexOf(true));
     });
 };
