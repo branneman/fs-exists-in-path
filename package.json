@@ -1,14 +1,14 @@
 {
-  "name": "node-fs-exists-in-path",
-  "version": "2.0.0",
+  "name": "fs-exists-in-path",
+  "version": "1.0.0",
   "description": "Async fs.exists() that walks the PATH environment variable",
-  "main": "node-fs-exists-in-path.js",
+  "main": "fs-exists-in-path.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/branneman/node-fs-exists-in-path.git"
+    "url": "https://github.com/branneman/fs-exists-in-path.git"
   },
   "keywords": [
     "fs",
@@ -18,7 +18,7 @@
   "author": "Bran van der Meer <branmovic@gmail.com> (http://bran.name/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/branneman/node-fs-exists-in-path/issues"
+    "url": "https://github.com/branneman/fs-exists-in-path/issues"
   },
   "dependencies": {
     "async": "^0.9.0"
