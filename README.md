@@ -2,8 +2,6 @@
 
 Async [fs.exists()](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback) that walks the PATH environment variable.
 
-NPM package can be found over here: [npmjs.org/package/node-fs-exists-in-path](https://npmjs.org/package/node-fs-exists-in-path)
-
 ## Install
 ```
 npm install node-fs-exists-in-path
