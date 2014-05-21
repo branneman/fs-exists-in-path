@@ -4,7 +4,7 @@ Async [fs.exists()](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback) th
 
 ## Install
 ```
-npm install node-fs-exists-in-path
+npm install node-fs-exists-in-path --save
 ```
 
 ## Example usage
